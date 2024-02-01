@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // fetch all users
-    $users = DB::select('select * from users');
+    // $users = DB::select('select * from users');
+    $users = DB::table('users')->where('id', 1)->get();
     
     // create new user
     // $user = DB::insert('insert into users (name, email, password) values (?,?,?)', [
@@ -25,16 +26,31 @@ Route::get('/', function () {
     //     Hash::make('test'),
     // ]);
 
+    /*
+        `=>` is used as an access mechanism for arrays
+        `->` is used in object scope to access methods and properties of an object
+        https://stackoverflow.com/questions/14037290/what-does-this-mean-in-php-or
+    */
+
+    // $user = DB::table('users')->insert([
+    //     'name' => 'Bejir',
+    //     'email' => 'wow@aa.com',
+    //     'password' => 'omg'
+    // ]);
+
     // update existing user
     // $user = DB::update('update users set name=? where name=?',[
     //     'test update',
     //     'Leenoogs'
     // ]);
 
+    // $user = DB::table('users')->where('id',2)->update(['email' => 'hehe@g.com']);
+
     // delete a user
     // $deleted = DB::delete('delete from users where id=?',[2]);
+    $deleted = DB::table('users')->where('id',2)->delete();
 
-    // dd($users);
+    dd($users);
 
     // default view
     // return view('welcome');
