@@ -15,6 +15,8 @@ return [
     |
     */
 
+    // penggunaan env('nama_variabel', 'default_value)
+
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*

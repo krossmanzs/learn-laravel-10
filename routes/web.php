@@ -19,7 +19,7 @@ Route::get('/', function () {
     // fetch all users
     // $users = DB::select('select * from users');
     // $users = DB::table('users')->where('id', 1)->get();
-    $users = User::find(8);
+    // $users = User::find(8);
     
     // create new user
     // $user = DB::insert('insert into users (name, email, password) values (?,?,?)', [
@@ -70,10 +70,10 @@ Route::get('/', function () {
     // $deleted = DB::table('users')->where('id',2)->delete();
     // $deleted = User::where('id',7)->delete();
 
-    dd($users->name);
+    // dd($users->name);
 
     // default view
-    // return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
