@@ -19,7 +19,7 @@ Route::get('/', function () {
     // fetch all users
     // $users = DB::select('select * from users');
     // $users = DB::table('users')->where('id', 1)->get();
-    $users = User::all();
+    $users = User::find(8);
     
     // create new user
     // $user = DB::insert('insert into users (name, email, password) values (?,?,?)', [
@@ -41,8 +41,21 @@ Route::get('/', function () {
     //     'email' => 'wow@aa.com',
     //     'password' => 'omg'
     // ]);
+
+    /*
+        Perbedaan Insert dan Create
+        - Insert untuk membuat record baru pada tabel sedangkan Create membuat sebuah record dan menyimpan ke database dalam sekali panggilan
+        - Create membuat created_at dan updated_at secara otomatis, sedangkan Insert tidak
+
+    */
+
+    // $user = User::insert([
+    //     'name' => 'test',
+    //     'email' => 'hmmm@gg.com',
+    //     'password' => 'woi'
+    // ]);
     
-    $user = User::where('id', '1')->first();
+    // $user = User::where('id', '1')->first();
 
     // update existing user
     // $user = DB::update('update users set name=? where name=?',[
@@ -54,9 +67,10 @@ Route::get('/', function () {
 
     // delete a user
     // $deleted = DB::delete('delete from users where id=?',[2]);
-    $deleted = DB::table('users')->where('id',2)->delete();
+    // $deleted = DB::table('users')->where('id',2)->delete();
+    // $deleted = User::where('id',7)->delete();
 
-    dd($users);
+    dd($users->name);
 
     // default view
     // return view('welcome');
