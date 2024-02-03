@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // fetch all users
     // $users = DB::select('select * from users');
-    $users = DB::table('users')->where('id', 1)->get();
+    // $users = DB::table('users')->where('id', 1)->get();
+    $users = User::all();
     
     // create new user
     // $user = DB::insert('insert into users (name, email, password) values (?,?,?)', [
@@ -30,6 +32,8 @@ Route::get('/', function () {
         `=>` is used as an access mechanism for arrays
         `->` is used in object scope to access methods and properties of an object
         https://stackoverflow.com/questions/14037290/what-does-this-mean-in-php-or
+
+        `::` is a token that allows access to a constant, static property, or static method of a class or one of its parents  
     */
 
     // $user = DB::table('users')->insert([
@@ -37,6 +41,8 @@ Route::get('/', function () {
     //     'email' => 'wow@aa.com',
     //     'password' => 'omg'
     // ]);
+    
+    $user = User::where('id', '1')->first();
 
     // update existing user
     // $user = DB::update('update users set name=? where name=?',[
